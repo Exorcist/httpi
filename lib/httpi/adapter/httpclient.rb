@@ -23,7 +23,7 @@ module HTTPI
       # @see HTTPI.request
       def request(method)
         setup_client
-        respond_with @client.request(method, @request.url, nil, @request.body, @request.headers, &@request.on_body)
+        respond_with @client.request(method, @request.url, nil, @request.body, @request.headers, true, &@request.on_body)
       rescue OpenSSL::SSL::SSLError
         raise SSLError
       rescue Errno::ECONNREFUSED   # connection refused
